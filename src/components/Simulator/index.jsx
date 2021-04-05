@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 
 import './simulator.scss';
 
-export default function Simulator({ maxCredit, minCredit, maxInstallments, minInstallments, interest = 0.4 }) {
+export default function Simulator({ maxCredit, minCredit, maxInstallments, minInstallments, interest }) {
   const [currentCredit, setCurrentCredit] = useState(minCredit);
   const [currentInstallments, setCurrentInstallments] = useState(minInstallments);
   const [totalPay, setTotalPay] = useState(0);
@@ -22,11 +22,16 @@ export default function Simulator({ maxCredit, minCredit, maxInstallments, minIn
 
   const calculateFixedFee = () => {
     if (currentInstallments <= 0 || currentInstallments > maxInstallments) return '----';
-
-    let FixedFee = Math.round(
-      currentCredit *
-        ((Math.pow(1 + interest, currentInstallments) * interest) / (Math.pow(1 + interest, currentInstallments) - 1))
-    );
+    let FixedFee;
+    // ejm: interest = 0.4 ⚠︎
+    if (interest) {
+      FixedFee = Math.round(
+        currentCredit *
+          ((Math.pow(1 + interest, currentInstallments) * interest) / (Math.pow(1 + interest, currentInstallments) - 1))
+      );
+    } else {
+      FixedFee = Math.round(currentCredit / currentInstallments);
+    }
     return FixedFee.toLocaleString('de-DE');
   };
 
