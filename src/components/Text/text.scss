@@ -1,0 +1,32 @@
+.mrc-simulator {
+  &.xl {
+    font-size: 1.5rem;
+    &.lead {
+      font-size: 1.5rem * 3;
+    }
+  }
+  &.lg {
+    font-size: 1.25rem;
+    &.lead {
+      font-size: 1.25rem * 3;
+    }
+  }
+  &.md {
+    font-size: 1rem;
+    &.lead {
+      font-size: 1rem * 3;
+    }
+  }
+  &.sm {
+    font-size: 0.75rem;
+    &.lead {
+      font-size: 0.75rem * 3;
+    }
+  }
+  &.xs {
+    font-size: 0.5rem;
+    &.lead {
+      font-size: 0.5rem * 3;
+    }
+  }
+}

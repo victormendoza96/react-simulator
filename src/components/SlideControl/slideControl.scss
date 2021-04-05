@@ -1,0 +1,23 @@
+.slide-limit {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: white;
+  margin: 5px 0px;
+  &.p-space {
+    padding: 0px 20px;
+    box-sizing: border-box;
+  }
+}
+
+.slide-container {
+  padding: 0px 20px;
+}
+
+.rc-slider-track {
+  background-color: #ffffff;
+}
+
+.rc-slider-handle {
+  border-color: #ffffff;
+}
